@@ -25,5 +25,5 @@
  */
 
 $string['pluginname'] = 'Moodleblock';
-$string['moodleblock'] = '';
+$string['moodleblock'] = 'Navigation';
 $string['moodleblock:addinstance'] = 'Add a new Moodleblock';
