@@ -1,0 +1,13 @@
+/* 
+    Document   : styles.css
+    Created on : Sep 16, 2013, 3:18:14 PM
+    Author     : Matt Rice
+    Description:
+        CSS for the Moodle Navigation block.
+*/
+
+span.icon-stack .pull-right-down {
+    padding-top: 0.4em;
+    padding-left: 0.3em;    
+}
+

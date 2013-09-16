@@ -90,7 +90,7 @@ class block_moodleblock extends block_base {
             //  icon-search
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/admin/user.php" /><span class="icon-stack icon-2x">
 	<i class="icon-user icon-stack-base"></i>
-	<i class="icon-pencil text-warning"></i>
+	<i class="icon-pencil pull-right-down text-warning"></i>
 </span></a>';
 
             // Admin Add/Edit Courses 
