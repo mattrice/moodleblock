@@ -31,3 +31,7 @@ font-size: 0.8em;
 .navcontent a {
     position: static;
 }
+
+.navcontent a:hover, a:link {
+    text-decoration: none;
+}
