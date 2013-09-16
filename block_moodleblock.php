@@ -39,7 +39,7 @@ class block_moodleblock extends block_base {
         global $CFG, $OUTPUT;
         
         $this->content = new stdClass;
-        $this->content->text = "";
+        $this->content->text = '<div class="navcontent">';
 
         // My Moodle icon 
         $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/" /><i class="icon-user icon-2x"></i><span class="text">My Moodle</span></a>';
@@ -113,6 +113,8 @@ class block_moodleblock extends block_base {
 	<i class="icon-search pull-right-down text-warning"></i>
 </span><span class="text">Search Courses</span>
 </a>';
+        
+        $this->content->text .= '</div>';
 
         // We don't want a footer
         $this->content->footer = "";

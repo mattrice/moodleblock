@@ -28,3 +28,6 @@ color:#fff;
 font-size: 0.8em;
 }
 
+.navcontent a {
+    position: static;
+}
