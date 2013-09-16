@@ -42,41 +42,34 @@ class block_moodleblock extends block_base {
         $this->content->text = "";
 
         // My Moodle icon 
-        //  icon-user
-        $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/" /><i class="icon-user" title="My Moodle"></i></a>';
+        $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/" /><i class="icon-user icon-2x"></i><span class="text">My Moodle</span></a>';
 
         // Portal Icon 
-        //  icon-dashboard
-        $this->content->text .= '<a class="tooltip" href="https://www.midmich.edu/portal" target="_blank" /><img src="' . $OUTPUT->pix_url('moodlebar/profile', 'theme') . '" title="MMCC Portal"  /><span>MMCC Portal</span></a>';
+        $this->content->text .= '<a class="tooltip" href="https://www.midmich.edu/portal" target="_blank" /><i class="icon-dashboard icon-2x"></i><span class="text">MMCC Portal</span></a>';
 
         // Message icon (check if it is disabled site wide then displays the icon accordingly)
-        //  icon-envelope
         if (empty($CFG->messaging)) {
             // do not display icon
         } else {
-            $this->content->text .= '<a class="tooltip" href="http://mail.google.com/a/midmich.edu" target="_blank" /><img src="' . $OUTPUT->pix_url('moodlebar/email', 'theme') . '" title="MidMail"  /><span>MidMail</span></a>';
+            $this->content->text .= '<a class="tooltip" href="http://mail.google.com/a/midmich.edu" target="_blank" /><i class="icon-envelope icon-2x"></i><span class="text">MMCC Email</span></a>';
         }
 
         // Calendar icon 
-        //  icon-calendar
-        $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/calendar/view.php/" /><img src="' . $OUTPUT->pix_url('moodlebar/calendar', 'theme') . '" title="My Calendar"  /><span>My Calendar</span></a>';
+        $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/calendar/view.php/" /><i class="icon-calendar icon-2x"></i><span class="text">My Calendar</span></a>';
 
         // Blog icons (check if it is disabled site wide then displays the icon accordingly)
-        //  icon-comments-alt
-        //  icon-edit-sign
         if (empty($CFG->bloglevel)) {
             // do not display blog icon
         } else {
-            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/" /><img src="' . $OUTPUT->pix_url('moodlebar/blog', 'theme') . '" title="Blogs"  /><span>Blogs</span></a>';
-            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/edit.php?action=add" /><img src="' . $OUTPUT->pix_url('moodlebar/blogadd', 'theme') . '" title="Add a blog entry"  /><span>Add a blog entry</span></a>';
+            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/" /><i class="icon-comments-alt icon-2x"></i><span class="text">Blogs</span></a>';
+            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/edit.php?action=add" /><i class="icon-edit-sign icon-2x"></i><span class="text">Add a blog entry</span></a>';
         }
 
         // Tag icon (check if it is disabled site wide then displays the icon accordingly) 
-        //  icon-tags
         if (empty($CFG->usetags)) {
             // do not display icon
         } else {
-            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/tag/" /><img src="' . $OUTPUT->pix_url('moodlebar/tags', 'theme') . '" title="Tags"  /><span>View all tags</span></a>';
+            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/tag/" /><i class="icon-tags icon-2x"></i><span class="text">View all tags</span></a>';
         }
 
         // Admin Only Icons
@@ -86,8 +79,6 @@ class block_moodleblock extends block_base {
         if (has_capability('moodle/site:config', $coursecontext)) {
 
             // Admin Browse Users
-            //  icon-user
-            //  icon-search
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/admin/user.php" />
 <span class="icon-stack icon-2x">
 	<i class="icon-user icon-stack-base"></i>
@@ -97,22 +88,31 @@ class block_moodleblock extends block_base {
 </a>';
 
             // Admin Add/Edit Courses 
-            //  icon-sitemap
-            //  icon-pencil
-            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/course/index.php" /><img src="' . $OUTPUT->pix_url('moodlebar/addcourses', 'theme') . '" title="Add/Edit Courses"  /><span>Add/Edit Courses</span></a>';
+            $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/course/index.php" />
+<span class="icon-stack icon-2x">
+	<i class="icon-site-map icon-stack-base"></i>
+	<i class="icon-pencil pull-right-down text-warning"></i>
+</span>
+<span class="text">Add/Edit Courses</span>
+</a>';
 
             // Admin Live Logs  (check if stats are enabled first!)
             //  icon-bar-chart
             if (empty($CFG->enablestats)) {
                 // do not show stats icon if stats is disabled
             } else {
-                $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/report/loglive/index.php?id=1&inpopup=1" /><img src="' . $OUTPUT->pix_url('moodlebar/graph', 'theme') . '" title="Live Logs"  /><span>Live Logs</span></a>';
+                $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/report/loglive/index.php?id=1&inpopup=1" /><i class="icon-bar-chart icon-2x"></i><span class="text">Live Logs</span></a>';
             }
         }
 
         //  icon-site-map
         //  icon-search
-        $this->content->text .= '<a class="tooltip" href="javascript:toggleLayer(\'moodlebarcoursesearch\');" /><img src="' . $OUTPUT->pix_url('moodlebar/search', 'theme') . '" title="Search Courses"  /><span>Search Courses</span></a>';
+        $this->content->text .= '<a class="tooltip" href="javascript:toggleLayer(\'moodlebarcoursesearch\');" />
+<span class="icon-stack icon-2x">
+	<i class="icon-site-map icon-stack-base"></i>
+	<i class="icon-search pull-right-down text-warning"></i>
+</span><span class="text">Search Courses</span>
+</a>';
 
         // We don't want a footer
         $this->content->footer = "";

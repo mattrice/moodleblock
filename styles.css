@@ -20,7 +20,7 @@ margin-top: -27px;
 width:auto;
 }
    
-a.tooltip:hover span.text{
+a.tooltip:hover span.text {
 display:inline; 
 position:absolute; 
 background:#282828; 
