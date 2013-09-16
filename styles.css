@@ -11,3 +11,20 @@ span.icon-stack .pull-right-down {
     padding-left: 0.3em;    
 }
 
+/* Moodle Bar Tooltips- fancy rollovers used on the quick launch images*/
+a.tooltip span.text {
+display:none; 
+padding:2px 3px; 
+margin-left:-37px;
+margin-top: -27px; 
+width:auto;
+}
+   
+a.tooltip:hover span.text{
+display:inline; 
+position:absolute; 
+background:#282828; 
+color:#fff;
+font-size: 0.8em;
+}
+
