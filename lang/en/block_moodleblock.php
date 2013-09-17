@@ -27,3 +27,16 @@
 $string['pluginname'] = 'Moodleblock';
 $string['moodleblock'] = 'Navigation';
 $string['moodleblock:addinstance'] = 'Add a new Moodleblock';
+$string['newmessages'] = ' new messages';                   // The leading space is important!!
+$string['nonewmessages'] = 'Messaging';
+$string['mymoodle'] = 'My Moodle';
+$string['portal'] = 'MMCC Portal';
+$string['email'] = 'MMCC Email';
+$string['mycalendar'] = 'My Calendar';
+$string['browseblogs'] = 'Browse Blogs';
+$string['addblogentry'] = 'Add a blog entry';
+$string['viewtags'] = 'View all tags';
+$string['browseusers'] = 'Browse Users';
+$string['broswecourses'] = 'Browse Courses';
+$string['livelogs'] = 'Live Logs';
+$string['searchcourses'] = 'Search Courses';

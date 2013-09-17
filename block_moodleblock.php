@@ -36,7 +36,7 @@ class block_moodleblock extends block_base {
             return $this->content;
         }
 
-        global $CFG, $OUTPUT;
+        global $CFG, $DB, $USER;
         
         $this->content = new stdClass;
         $this->content->text = '<div class="navcontent">';
@@ -46,7 +46,7 @@ class block_moodleblock extends block_base {
 <span class="icon-stack icon-2x">
 	<i class="icon-user icon-stack-base"></i>
 </span>
-<span class="text">My Moodle</span>
+<span class="text">'. get_string('mymoodle', 'block_moodleblock') .'</span>
 </a>';
 
         // Portal Icon 
@@ -54,19 +54,40 @@ class block_moodleblock extends block_base {
 <span class="icon-stack icon-2x">
 	<i class="icon-dashboard icon-stack-base"></i>
 </span>
-<span class="text">MMCC Portal</span>
+<span class="text">'. get_string('portal', 'block_moodleblock') .'</span>
 </a>';
-
+        
+        //MMCC Email icon
+        $this->content->text .= '<a class="tooltip" href="http://mail.google.com/a/midmich.edu" target="_blank" />
+<span class="icon-stack icon-2x">
+	<i class="icon-envelope icon-stack-base"></i>
+</span>
+<span class="text">'. get_string('email', 'block_moodleblock') .'</span>
+</a>';
+        
         // Message icon (check if it is disabled site wide then displays the icon accordingly)
         if (empty($CFG->messaging)) {
             // do not display icon
         } else {
-            $this->content->text .= '<a class="tooltip" href="http://mail.google.com/a/midmich.edu" target="_blank" />
+            $messagecount = $DB->count_records('message', array('useridto'=>$USER->id));
+            $this->content->text .= '<a class="tooltip" href="'.$CFG->wwwroot.'/message/index.php" target="_blank" />
 <span class="icon-stack icon-2x">
-	<i class="icon-envelope icon-stack-base"></i>
+	<i class="icon-comments-alt icon-stack-base"></i>';
+            // Indicate new messages
+            if (0 < $messagecount) {
+                //User has new messages
+                $this->content->text .= '
+	<i class="icon-exclamation-sign pull-right-down text-error"></i>
 </span>
-<span class="text">MMCC Email</span>
+<span class="text">' . $messagecount . get_string('newmessages', 'block_moodleblock') . '</span>
 </a>';
+            } else {
+                //No new messages
+            $this->content->text .= '
+</span>
+<span class="text">' . get_string('nonewmessages', 'block_moodleblock') . '</span>
+</a>';
+            }
         }
 
         // Calendar icon 
@@ -74,7 +95,7 @@ class block_moodleblock extends block_base {
 <span class="icon-stack icon-2x">
 	<i class="icon-calendar icon-stack-base"></i>
 </span>
-<span class="text">My Calendar</span>
+<span class="text">'. get_string('mycalendar', 'block_moodleblock') .'</span>
 </a>';
 
         // Blog icons (check if it is disabled site wide then displays the icon accordingly)
@@ -83,22 +104,19 @@ class block_moodleblock extends block_base {
         } else {
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/" />
 <span class="icon-stack icon-2x">
-	<i class="icon-comments-alt icon-stack-base"></i>
+	<i class="icon-group icon-stack-base"></i>
 </span>
-<span class="text">Blogs</span>
+<span class="text">'. get_string('browseblogs', 'block_moodleblock') .'</span>
 </a>';
-            /*
+
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/edit.php?action=add" />
 <span class="icon-stack icon-2x">
 	<i class="icon-edit-icon icon-stack-base"></i>
 </span>
-<span class="text">Add a blog entry</span>
+<span class="text">'. get_string('addblogentry', 'block_moodleblock') .'</span>
 </a>';
-             * 
-             */
         }
 
-        /*
         // Tag icon (check if it is disabled site wide then displays the icon accordingly) 
         if (empty($CFG->usetags)) {
             // do not display icon
@@ -107,11 +125,10 @@ class block_moodleblock extends block_base {
 <span class="icon-stack icon-2x">
 	<i class="icon-tags icon-stack-base"></i>
 </span>
-<span class="text">View all tags</span>
+<span class="text">'. get_string('viewtags', 'block_moodleblock') .'</span>
 </a>';
         }
         
-        */
 
         // Admin Only Icons
         // get user rights
@@ -125,7 +142,7 @@ class block_moodleblock extends block_base {
 	<i class="icon-user icon-stack-base"></i>
 	<i class="icon-share-alt pull-right-down text-success"></i>
 </span>
-<span class="text">Browse Users</span>
+<span class="text">'. get_string('browseusers', 'block_moodleblock') .'</span>
 </a>';
 
             // Admin Add/Edit Courses 
@@ -134,7 +151,7 @@ class block_moodleblock extends block_base {
 	<i class="icon-th-list icon-stack-base"></i>
 	<i class="icon-share-alt pull-right-down text-success"></i>
 </span>
-<span class="text">Add/Edit Courses</span>
+<span class="text">'. get_string('browsecourses', 'block_moodleblock') .'</span>
 </a>';
 
             // Admin Live Logs  (check if stats are enabled first!)
@@ -145,7 +162,7 @@ class block_moodleblock extends block_base {
 <span class="icon-stack icon-2x">
 	<i class="icon-bar-chart icon-stack-base"></i>
 </span>
-<span class="text">Live Logs</span>
+<span class="text">'. get_string('livelogs', 'block_moodleblock') .'</span>
 </a>';
             }
         }
@@ -160,7 +177,7 @@ class block_moodleblock extends block_base {
         
          $this->content->text .= '<form name="form1" method="get" action="' . $CFG->wwwroot . '/course/search.php" id="form1">
     <div class="input-append">
-        <input id="navsearchtext" type="text" name="search" placeholder="Search Courses" >
+        <input id="navsearchtext" type="text" name="search" placeholder="'. get_string('searchcourses', 'block_moodleblock') .'" >
         <button type="submit" class="btn"><i class="icon-search" id="navsearchbtn"></i></button>
     </div>
 </form>';
