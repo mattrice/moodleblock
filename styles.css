@@ -1,3 +1,4 @@
+/** Path: plugins block_moodleblock **/
 /* 
     Document   : styles.css
     Created on : Sep 16, 2013, 3:18:14 PM
@@ -14,33 +15,37 @@ span.icon-stack .pull-right-down {
 /* Moodle Bar Tooltips- fancy rollovers used on the quick launch images*/
 a.tooltip span.text {
 display:none; 
-padding:2px 3px; 
-margin-left:-37px;
-margin-top: -27px; 
+position: absolute;
+padding:2px 3px;  
 width:auto;
 }
    
 a.tooltip:hover span.text {
-display:inline; 
+display:inline-block; 
 position:absolute; 
 background:#282828; 
-color:#fff;
 font-size: 0.8em;
+margin-left: -15px;
+margin-top: -60px;
 }
 
 .navcontent a {
     position: relative;
-    display: inline;
+    display: inline-block;
 }
 
 .navcontent a:hover, a:link {
     text-decoration: none;
 }
 
-.navcontent span .icon-stack {
-    padding: 4px 12px;
+.navcontent span.icon-stack {
+    padding: 4px 6px;
 }
 
 #navsearchtext {
     width: 75%;
+}
+
+.navcontent form {
+    padding: 5px;
 }
