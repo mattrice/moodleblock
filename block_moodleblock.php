@@ -79,7 +79,7 @@ class block_moodleblock extends block_base {
                 $this->content->text .= '
 	<i class="icon-exclamation-sign pull-right-down text-error"></i>
 </span>
-<span class="text">' . $messagecount . get_string('newmessages', 'block_moodleblock') . '</span>
+<span class="text">' . $messagecount . get_string(((1==$messagecount)?'newmessage':'newmessages'), 'block_moodleblock') . '</span>
 </a>';
             } else {
                 //No new messages
@@ -158,7 +158,7 @@ class block_moodleblock extends block_base {
             if (empty($CFG->enablestats)) {
                 // do not show stats icon if stats is disabled
             } else {
-                $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/report/loglive/index.php?id=1&inpopup=1" />
+                $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/report/loglive/index.php?id=1&inpopup=1" target="_blank" />
 <span class="icon-stack icon-2x">
 	<i class="icon-bar-chart icon-stack-base"></i>
 </span>
