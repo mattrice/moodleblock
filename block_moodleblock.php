@@ -42,7 +42,7 @@ class block_moodleblock extends block_base {
         $this->content->text = '<div class="navcontent">';
 
         // My Moodle icon 
-        $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/" />
+        $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/my" />
 <span class="icon-stack icon-2x">
 	<i class="icon-user icon-stack-base"></i>
 </span>
@@ -57,7 +57,7 @@ class block_moodleblock extends block_base {
 <span class="text">'. get_string('portal', 'block_moodleblock') .'</span>
 </a>';
         
-        //MMCC Email icon
+        //Email icon
         $this->content->text .= '<a class="tooltip" href="http://mail.google.com/a/midmich.edu" target="_blank" />
 <span class="icon-stack icon-2x">
 	<i class="icon-envelope icon-stack-base"></i>
