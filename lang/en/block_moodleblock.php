@@ -37,6 +37,6 @@ $string['browseblogs'] = 'Browse Blogs';
 $string['addblogentry'] = 'Add a blog entry';
 $string['viewtags'] = 'View all tags';
 $string['browseusers'] = 'Browse Users';
-$string['broswecourses'] = 'Browse Courses';
+$string['browsecourses'] = 'Browse Courses';
 $string['livelogs'] = 'Live Logs';
 $string['searchcourses'] = 'Search Courses';

@@ -111,7 +111,7 @@ class block_moodleblock extends block_base {
 
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/edit.php?action=add" />
 <span class="icon-stack icon-2x">
-	<i class="icon-edit-icon icon-stack-base"></i>
+	<i class="icon-edit icon-stack-base"></i>
 </span>
 <span class="text">'. get_string('addblogentry', 'block_moodleblock') .'</span>
 </a>';
