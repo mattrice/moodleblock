@@ -87,14 +87,18 @@ class block_moodleblock extends block_base {
 </span>
 <span class="text">Blogs</span>
 </a>';
+            /*
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/edit.php?action=add" />
 <span class="icon-stack icon-2x">
 	<i class="icon-edit-icon icon-stack-base"></i>
 </span>
 <span class="text">Add a blog entry</span>
 </a>';
+             * 
+             */
         }
 
+        /*
         // Tag icon (check if it is disabled site wide then displays the icon accordingly) 
         if (empty($CFG->usetags)) {
             // do not display icon
@@ -106,6 +110,8 @@ class block_moodleblock extends block_base {
 <span class="text">View all tags</span>
 </a>';
         }
+        
+        */
 
         // Admin Only Icons
         // get user rights
@@ -117,7 +123,7 @@ class block_moodleblock extends block_base {
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/admin/user.php" />
 <span class="icon-stack icon-2x">
 	<i class="icon-user icon-stack-base"></i>
-	<i class="icon-pencil pull-right-down text-warning"></i>
+	<i class="icon-share-alt pull-right-down text-success"></i>
 </span>
 <span class="text">Browse Users</span>
 </a>';
@@ -126,7 +132,7 @@ class block_moodleblock extends block_base {
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/course/index.php" />
 <span class="icon-stack icon-2x">
 	<i class="icon-th-list icon-stack-base"></i>
-	<i class="icon-pencil pull-right-down text-warning"></i>
+	<i class="icon-share-alt pull-right-down text-success"></i>
 </span>
 <span class="text">Add/Edit Courses</span>
 </a>';
@@ -144,12 +150,21 @@ class block_moodleblock extends block_base {
             }
         }
 
-        $this->content->text .= '<a class="tooltip" href="javascript:toggleLayer(\'moodlebarcoursesearch\');" />
-<span class="icon-stack icon-2x">
-	<i class="icon-search icon-stack-base"></i>
-</span>
-<span class="text">Search Courses</span>
-</a>';
+//        
+//        $this->content->text .= '<a class="tooltip" href="javascript:toggleLayer(\'moodlebarcoursesearch\');" />
+//<span class="icon-stack icon-2x">
+//	<i class="icon-search icon-stack-base"></i>
+//</span>
+//<span class="text">Search Courses</span>
+//</a>';
+        
+         $this->content->text .= '<form name="form1" method="get" action="' . $CFG->wwwroot . '/course/search.php" id="form1">
+    <div class="input-append">
+        <input class="span10" type="input" placeholder="Search Courses" >
+        <a type="submit" class="btn add-on"><i class="icon-search" id="navsearch"></i></span>
+    </div>
+</form>';
+
         
         $this->content->text .= '</div>';
 
