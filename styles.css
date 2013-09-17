@@ -11,6 +11,10 @@ span.icon-stack .pull-right-down {
     padding-top: 0.4em;
     padding-left: 0.7em;    
 }
+/* Give the links a sane Z-index (bootstrap gives .tooltip a z-index of 1030) */
+a.tooltip {
+    z-index: 0;
+}
 
 /* Moodle Bar Tooltips- fancy rollovers used on the quick launch images*/
 a.tooltip span.text {
