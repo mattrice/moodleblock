@@ -37,8 +37,8 @@ font-size: 0.8em;
     text-decoration: none;
 }
 
-#navsearchbtn {
-    color: black;
+.navcontent span .icon-stack {
+    padding: 4px 12px;
 }
 
 #navsearchtext {
