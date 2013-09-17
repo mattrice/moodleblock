@@ -37,6 +37,10 @@ font-size: 0.8em;
     text-decoration: none;
 }
 
-#navsearch {
+#navsearchbtn {
     color: black;
+}
+
+#navsearchtext {
+    width: 75%;
 }

@@ -160,8 +160,8 @@ class block_moodleblock extends block_base {
         
          $this->content->text .= '<form name="form1" method="get" action="' . $CFG->wwwroot . '/course/search.php" id="form1">
     <div class="input-append">
-        <input class="span10" type="input" placeholder="Search Courses" >
-        <a type="submit" class="btn add-on"><i class="icon-search" id="navsearch"></i></span>
+        <input id="navsearchtext" type="input" name="search" placeholder="Search Courses" >
+        <button type="submit" class="btn"><i class="icon-search" id="navsearchbtn"></i></button>
     </div>
 </form>';
 
