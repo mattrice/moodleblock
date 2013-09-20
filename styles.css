@@ -12,19 +12,19 @@ span.icon-stack .pull-right-down {
     padding-left: 0.7em;    
 }
 /* Give the links a sane Z-index (bootstrap gives .tooltip a z-index of 1030) */
-a.tooltip {
+.navcontent a.tooltip {
     z-index: 0;
 }
 
 /* Moodle Bar Tooltips- fancy rollovers used on the quick launch images*/
-a.tooltip span.text {
+.navcontent a.tooltip span.text {
 display:none; 
 position: absolute;
 padding:2px 3px;  
 width:auto;
 }
    
-a.tooltip:hover span.text {
+.navcontent a.tooltip:hover span.text {
 display:inline-block; 
 position:absolute; 
 background:#282828; 
@@ -47,9 +47,13 @@ margin-top: -60px;
 }
 
 #navsearchtext {
-    width: 75%;
+    width: 85%;
 }
 
 .navcontent form {
     padding: 5px;
+}
+
+.navcontent form div {
+    width: 100%;
 }
