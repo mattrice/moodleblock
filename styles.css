@@ -38,7 +38,8 @@ margin-top: -60px;
     display: inline-block;
 }
 
-.navcontent a:hover, a:link {
+.navcontent a:hover, 
+.navcontent a:link {
     text-decoration: none;
 }
 
