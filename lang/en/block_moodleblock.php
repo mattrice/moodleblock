@@ -27,8 +27,8 @@
 $string['pluginname'] = 'Moodleblock';
 $string['moodleblock'] = 'Navigation';
 $string['moodleblock:addinstance'] = 'Add a new Moodleblock';
-$string['newmessage'] = ' new message';                   // The leading space is important!!
-$string['newmessages'] = ' new messages';                   // The leading space is important!!
+$string['newmessage'] = '{$a} new message';
+$string['newmessages'] = '{$a} new messages';
 $string['nonewmessages'] = 'Messaging';
 $string['mymoodle'] = 'My Moodle';
 $string['portal'] = 'MMCC Portal';

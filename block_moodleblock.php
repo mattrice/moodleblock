@@ -43,24 +43,24 @@ class block_moodleblock extends block_base {
 
         // My Moodle icon 
         $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/my" />
-<span class="icon-stack icon-2x">
-	<i class="icon-user icon-stack-base"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-user fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('mymoodle', 'block_moodleblock') .'</span>
 </a>';
 
         // Portal Icon 
-        $this->content->text .= '<a class="tooltip" href="https://www.midmich.edu/portal" target="_blank" />
-<span class="icon-stack icon-2x">
-	<i class="icon-dashboard icon-stack-base"></i>
+         $this->content->text .= '<a class="tooltip" href="https://www.midmich.edu/portal" target="_blank" />
+<span class="fa-stack fa-2x">
+	<i class="fa fa-tachometer fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('portal', 'block_moodleblock') .'</span>
 </a>';
-        
+       
         //Email icon
         $this->content->text .= '<a class="tooltip" href="http://mail.google.com/a/midmich.edu" target="_blank" />
-<span class="icon-stack icon-2x">
-	<i class="icon-envelope icon-stack-base"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-envelope fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('email', 'block_moodleblock') .'</span>
 </a>';
@@ -71,15 +71,15 @@ class block_moodleblock extends block_base {
         } else {
             $messagecount = $DB->count_records('message', array('useridto'=>$USER->id));
             $this->content->text .= '<a class="tooltip" href="'.$CFG->wwwroot.'/message/index.php" target="_blank" />
-<span class="icon-stack icon-2x">
-	<i class="icon-comments-alt icon-stack-base"></i>';
+<span class="fa-stack fa-2x">
+	<i class="fa fa-comments-o fa-stack-2x fa-fw"></i>';
             // Indicate new messages
             if (0 < $messagecount) {
                 //User has new messages
                 $this->content->text .= '
-	<i class="icon-exclamation-sign pull-right-down text-error"></i>
+	<i class="fa fa-exclamation-circle fa-stack-1x text-error pull-right-down"></i>
 </span>
-<span class="text">' . $messagecount . get_string(((1==$messagecount)?'newmessage':'newmessages'), 'block_moodleblock') . '</span>
+<span class="text">' . get_string(((1==$messagecount)?'newmessage':'newmessages'), 'block_moodleblock', $messagecount) . '</span>
 </a>';
             } else {
                 //No new messages
@@ -92,26 +92,27 @@ class block_moodleblock extends block_base {
 
         // Calendar icon 
         $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/calendar/view.php/" />
-<span class="icon-stack icon-2x">
-	<i class="icon-calendar icon-stack-base"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-calendar fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('mycalendar', 'block_moodleblock') .'</span>
 </a>';
 
         // Blog icons (check if it is disabled site wide then displays the icon accordingly)
+	//Users fa-group (not fa-users like is shown in the FA cheatsheet)
         if (empty($CFG->bloglevel)) {
             // do not display blog icon
         } else {
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/" />
-<span class="icon-stack icon-2x">
-	<i class="icon-group icon-stack-base"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-files-o fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('browseblogs', 'block_moodleblock') .'</span>
 </a>';
 
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/blog/edit.php?action=add" />
-<span class="icon-stack icon-2x">
-	<i class="icon-edit icon-stack-base"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-pencil-square-o fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('addblogentry', 'block_moodleblock') .'</span>
 </a>';
@@ -122,8 +123,8 @@ class block_moodleblock extends block_base {
             // do not display icon
         } else {
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/tag/" />
-<span class="icon-stack icon-2x">
-	<i class="icon-tags icon-stack-base"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-tags fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('viewtags', 'block_moodleblock') .'</span>
 </a>';
@@ -138,18 +139,18 @@ class block_moodleblock extends block_base {
 
             // Admin Browse Users
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/admin/user.php" />
-<span class="icon-stack icon-2x">
-	<i class="icon-user icon-stack-base"></i>
-	<i class="icon-share-alt pull-right-down text-success"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-group fa-stack-2x fa-fw"></i>
+	<i class="fa fa-share fa-stack-1x text-success pull-right-down"></i>
 </span>
 <span class="text">'. get_string('browseusers', 'block_moodleblock') .'</span>
 </a>';
 
             // Admin Add/Edit Courses 
             $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/course/index.php" />
-<span class="icon-stack icon-2x">
-	<i class="icon-th-list icon-stack-base"></i>
-	<i class="icon-share-alt pull-right-down text-success"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-th-list  fa-stack-2x fa-fw"></i>
+	<i class="fa fa-share fa-stack-1x text-success pull-right-down"></i>
 </span>
 <span class="text">'. get_string('browsecourses', 'block_moodleblock') .'</span>
 </a>';
@@ -159,28 +160,32 @@ class block_moodleblock extends block_base {
                 // do not show stats icon if stats is disabled
             } else {
                 $this->content->text .= '<a class="tooltip" href="' . $CFG->wwwroot . '/report/loglive/index.php?id=1&inpopup=1" target="_blank" />
-<span class="icon-stack icon-2x">
-	<i class="icon-bar-chart icon-stack-base"></i>
+<span class="fa-stack fa-2x">
+	<i class="fa fa-bar-chart-o fa-stack-2x fa-fw"></i>
 </span>
 <span class="text">'. get_string('livelogs', 'block_moodleblock') .'</span>
 </a>';
             }
         }
-
-//        
-//        $this->content->text .= '<a class="tooltip" href="javascript:toggleLayer(\'moodlebarcoursesearch\');" />
-//<span class="icon-stack icon-2x">
-//	<i class="icon-search icon-stack-base"></i>
-//</span>
-//<span class="text">Search Courses</span>
-//</a>';
         
          $this->content->text .= '<form name="form1" method="get" action="' . $CFG->wwwroot . '/course/search.php" id="form1">
     <div class="input-append">
         <input id="navsearchtext" type="text" name="search" placeholder="'. get_string('searchcourses', 'block_moodleblock') .'" >
-        <button type="submit" class="btn"><i class="icon-search" id="navsearchbtn"></i></button>
+        <button type="submit" class="btn"><i class="fa fa-search fa-fw" id="navsearchbtn"></i></button>
     </div>
 </form>';
+
+
+/*         $this->content->text .= '<form name="form1" method="get" action="' . $CFG->wwwroot . '/course/search.php" id="form1">
+    <div class="input-group">
+        <span class="input-group-btn">
+		<button type="submit" class="btn btn-default">Go</button>
+	</span>
+        <input class="form-control" id="navsearchtext" type="text" name="search" placeholder="'. get_string('searchcourses', 'block_moodleblock') .'" >
+    </div>
+</form>';
+*/
+
 
         
         $this->content->text .= '</div>';

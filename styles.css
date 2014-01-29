@@ -7,7 +7,7 @@
         CSS for the Moodle Navigation block.
 */
 
-span.icon-stack .pull-right-down {
+span.fa-stack .pull-right-down {
     padding-top: 0.4em;
     padding-left: 0.7em;    
 }
@@ -29,8 +29,8 @@ display:inline-block;
 position:absolute; 
 background:#282828; 
 font-size: 0.8em;
-margin-left: -15px;
-margin-top: -60px;
+left: -15px;
+top: -10px;
 }
 
 .navcontent a {
@@ -43,7 +43,7 @@ margin-top: -60px;
     text-decoration: none;
 }
 
-.navcontent span.icon-stack {
+.navcontent span.fa-stack {
     padding: 4px 6px;
 }
 
