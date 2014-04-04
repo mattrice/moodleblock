@@ -133,7 +133,7 @@ class block_moodleblock extends block_base {
 
         // Admin Only Icons
         // get user rights
-        $coursecontext = get_context_instance(CONTEXT_SYSTEM);   // SYSTEM context
+        $coursecontext = context_system::instance();
         // check user is site admin
         if (has_capability('moodle/site:config', $coursecontext)) {
 
